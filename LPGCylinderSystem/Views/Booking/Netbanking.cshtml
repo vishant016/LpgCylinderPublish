@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<link href="~/css/netbanking/netbanking.css" rel="stylesheet" />
+<div style="background-color:#F2F2FE">
+    <br /><br /><br /><br />
+    <div class="container mt-5 px-5">
+        <div class="mb-4">
+            <h2>Confirm order and pay</h2> <span>just sit down we will care your health.</span>
+        </div>
+        <br /><br />
+        <form method="post" enctype="multipart/form-data" asp-controller="Booking" asp-action="Netbankingpayment">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card p-3">
+                        <h6 class="text-uppercase"><b>Payment details</b></h6>
+                        <br>
+
+                        <h6>Select your Bank</h6>
+                        <select class="form-control" name="bank" id="bank">
+                            <option>--Please select your Bank--</option>
+                            <option>SBI</option>
+                            <option>KOTAK</option>
+                            <option>AXIS</option>
+                            <option>HDFC</option>
+                            <option>BOB</option>
+
+                        </select>
+                        <br>
+                        <div class="inputbox mt-3">
+                            <input type="text" name="uname" id="uname" class="form-control" required="required"> <span>Net Banking ID</span>
+                        </div>
+                        <div class="row">
+
+
+                        </div>
+                        <div class="inputbox mt-3">
+                            <input type="password" name="passwd" id="passwd" class="form-control" required="required"> <span>Password</span>
+                        </div>
+                        <div class="row">
+
+
+                        </div>
+
+                    </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between"> <span></span> <button class="main-button">Pay ₹@ViewBag.total</button> </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-blue p-3 text-white mb-3">
+                        <span>You have to pay</span>
+                        <div class="d-flex flex-row align-items-end mb-3">
+                            <h1 class="mb-0 yellow">₹@ViewBag.total</h1>
+                        </div> <span>Enjoy all the features and perk after you complete the payment</span>
+                        <div class="hightlight"> <span>100% Secure and flexible payments</span> </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br /><br /><br /><br />
+    </div>
+    @*
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    *@
+    @{ }

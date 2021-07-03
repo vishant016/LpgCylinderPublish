@@ -1,0 +1,234 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+
+@{ ViewData["Title"] = "Home Page"; }
+
+
+@*@if (User.IsInRole("ADMIN"))
+    {
+
+        <a class="buttton button2" type="button" asp-controller="Admin" asp-action="Index">Admin</a>
+    }
+    else
+    {*@
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+
+
+<link rel="stylesheet" type="text/css" href="css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/assets/css/font-awesome.css">
+
+<link rel="stylesheet" href="css/assets/css/templatemo-softy-pinko.css">
+
+
+<style>
+    .topnav-left {
+        float: left;
+    }
+
+    .topnav-right {
+        float: right;
+    }
+</style>
+
+
+<!-- ***** Preloader End ***** -->
+<!-- ***** Header Area Start ***** -->
+<!-- ***** Header Area End ***** -->
+<!-- ***** Welcome Area Start ***** -->
+<!-- ***** Welcome Area End ***** -->
+<!-- ***** Features Small Start ***** -->
+<!-- ***** Features Small End ***** -->
+<!-- ***** Features Big Item Start ***** -->
+<!-- ***** Features Big Item End ***** -->
+<!-- ***** Features Big Item Start ***** -->
+<!-- ***** Features Big Item End ***** -->
+<!-- ***** Home Parallax Start ***** -->
+<section class="mini" id="work-process">
+    <div class="mini-content">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="info">
+                        <br><br><br>
+                        <h1>Welcome</h1>
+                        <br /><br />
+                    </div>
+                </div>
+            </div>
+
+            <!-- ***** Mini Box Start ***** -->
+            <div class="row" style="padding-left:120px">
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <a  asp-controller="Booking" asp-action="Index" class="mini-box">
+                        <i><img src="css/assets/images/work-process-item-01.png" alt=""></i>
+                        <strong>Book Your Cylinder</strong>
+                       
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <a asp-controller="Booking" asp-action="Detail" class="mini-box">
+                        <i><img src="css/assets/images/work-process-item-01.png" alt=""></i>
+                        <strong>Previous Booking</strong>
+                        
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <a asp-controller="Complaint" asp-action="Details" class="mini-box">
+                        <i><img src="css/assets/images/work-process-item-01.png" alt=""></i>
+                        <strong>View Complaints</strong>
+                        
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <a asp-controller="Home" asp-action="Subsidy" class="mini-box">
+                        <i><img src="css/assets/images/work-process-item-01.png" alt=""></i>
+                        <strong>Subsidy Details</strong>
+                       
+                    </a>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 col-6">
+                    <a asp-controller="Home" asp-action="PreferTime" class="mini-box">
+                        <i><img src="css/assets/images/work-process-item-01.png" alt=""></i>
+                        <strong>Set Delivery Time</strong>
+                        
+                    </a>
+                </div>
+            </div>
+            <!-- ***** Mini Box End ***** -->
+        </div>
+    </div>
+</section>
+<!-- ***** Home Parallax End ***** -->
+<!-- ***** Testimonials Start ***** -->
+<!-- ***** Counter Parallax Start ***** -->
+<section class="counter">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="count-item decoration-bottom">
+                        <strong>4000+</strong>
+                        <span>Happy Customers</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="count-item decoration-top">
+                        <strong>50+</strong>
+                        <span>Agencies</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="count-item decoration-bottom">
+                        <strong>300+</strong>
+                        <span>Delivery Parteners</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Counter Parallax End ***** -->
+<!-- ***** Blog Start ***** -->
+<section class="section padding-top-70 padding-bottom-0" id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 align-self-center" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+                <img src="css/assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
+                <div class="left-heading">
+                    <h2 class="section-title">Let’s discuss about us</h2>
+                </div>
+                <div class="left-text">
+                    <p>We are providing the cylinder through online booking with various payment options so it will less time and faster than ordinary one's.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ***** Contact Us Start ***** -->
+<section class="section colored" id="contact-us">
+    <div class="container">
+        <!-- ***** Section Title Start ***** -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title">Talk To Us</h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+
+                </div>
+            </div>
+        </div>
+        <!-- ***** Section Title End ***** -->
+
+        <div class="row">
+            <!-- ***** Contact Text Start ***** -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+               
+                <div class="contact-text">
+
+                </div>
+            </div>
+            <!-- ***** Contact Text End ***** -->
+            <!-- ***** Contact Form Start ***** -->
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="contact-form">
+                    <form id="contact" action="" method="get">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input name="email" type="email" class="form-control" id="email" placeholder="E-Mail Address" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- ***** Contact Form End ***** -->
+        </div>
+    </div>
+</section>
+<!-- ***** Contact Us End ***** -->
+<!-- ***** Footer Start ***** -->
+<!-- jQuery -->
+<script src="js/js/jquery-2.1.0.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="js/js/popper.js"></script>
+<script src="js/js/bootstrap.min.js"></script>
+
+<!-- Plugins -->
+<script src="js/js/scrollreveal.min.js"></script>
+<script src="js/js/waypoints.min.js"></script>
+<script src="js/js/jquery.counterup.min.js"></script>
+<script src="js/js/imgfix.min.js"></script>
+
+<!-- Global Init -->
+<script src="assets/js/custom.js"></script>
+
+@*  *@
+
+

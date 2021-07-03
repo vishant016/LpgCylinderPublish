@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ ViewData["Title"] = "Subsidy Details"; }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="        background-color: #F2F2FE">
+    <br /><br /><br /><br /><br /><br />
+    <h1 text-align="center" style="        padding-left: 200px">Subsidy Details</h1>
+    <br />
+    <form runat="server">
+        @if (ViewBag.opted == true)
+        {
+<h3 style="padding-left:200px">Congratulations!! Currently you are opted in for Subsidy</h3>
+                <br />
+                                <h4 style="padding-left:200px">Opt out for subsidy and make one family Happy:)</h4>
+                                                <div style="margin-top:25px;margin-left:100px">
+
+                                                    <button style="margin-left:200px;margin-bottom:215px" class="btn btn-dark" asp-controller="Home" asp-action="SubsidyVerify">Opt Out</button>
+                                                    @*<input type="hidden" name="uid" asp-for="@user.Id.ToString()" />*@
+                                                </div> }
+                                            else
+                                            {
+
+                                <h3 style="padding-left:200px">You are not opted for Subsidy</h3>
+                                                <br />
+                                                                <h4 style="padding-left:200px">Please fill below details to opt in for subsidy!!</h4>
+                                                                                <br />
+                                                                                                <div class="contact-form" style="padding-left:200px">
+                                                                                                    <div class="col-lg-4">
+                                                                                                        <label class="control-label"><b>Yearly Income:</b></label>
+                                                                                                        <fieldset>
+                                                                                                            <input type="text" name="income" id="income" class="form-control" pattern="[0-9]+" placeholder="Income....." required />
+                                                                                                        </fieldset>
+                                                                                                    </div>
+
+                                                                                                    <div class="col-lg-4">
+                                                                                                        <label class="control-label"><b>Income Ceritificate Number:</b></label>
+                                                                                                        <fieldset>
+                                                                                                            <input type="text" name="certno" id="certno" class="form-control" placeholder="Certificate Number....." pattern="[0-9]+" required />
+                                                                                                        </fieldset>
+                                                                                                    </div>
+
+
+                                                                                                    <div class="form-group" style="margin-top:25px">
+
+                                                                                                        <button class="main-button" asp-controller="Home" asp-action="SubsidyVerify">Submit </button>
+                                                                                                        @*<input type="hidden" name="uid" asp-for="@user.Id.ToString()" />*@
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                                <br /><br /><br /><br />}
+    </form>
+</div>
+

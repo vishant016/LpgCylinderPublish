@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model LPGCylinderSystem.Models.ApplicationUser
+    <link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+    <div style="        background-color: #F2F2FE">
+        <br /><br /><br /><br /><br /><br />
+        <form runat="server" style="padding-left:200px">
+            <h1>Set or Change your Prefer Delivery Time </h1>
+            <hr />
+            @if (@Model.PreferedDeliveryTime == null)
+            {
+<h3>Select prefer Delivery time and take Delivery at your convenient time:)</h3> }
+else
+{
+<h4>Your Prefer Delivery Time: @Model.PreferedDeliveryTime</h4>}
+
+            <hr />
+            <h5>Choose Time</h5>
+            <br />
+            <div class="col-lg-4">
+                <select name="tem" id="tem" class="form-control form-control-lg" onclick="darkColor">
+
+                    <option value="8AM-10AM">8AM-10AM</option>
+                    <option value="10AM-12PM">10AM-12PM</option>
+                    <option value="12PM-3PM">12PM-3PM</option>
+                    <option value="3PM-6PM">3PM-6PM</option>
+                    <option value="6PM-8PM">6PM-8PM </option>
+                </select>
+            </div>
+            <br />
+
+
+            <button class="main-button" asp-controller="Home" asp-action="SetTime">Set Time</button>
+
+            <br /><br />
+            <p>Please note that we won't gurranty that cylinder will be delivered only that time but we will try our best:)</p>
+            <br /><br /><br /><br /><br />
+        </form>
+    </div>

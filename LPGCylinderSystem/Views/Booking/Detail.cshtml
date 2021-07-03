@@ -1,0 +1,80 @@
+﻿@model IEnumerable<LPGCylinderSystem.Models.Booking>
+
+@{ ViewData["Title"] = "Your Bookings"; }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="background-color: #F2F2FE ">
+    @if (ViewBag.Error == "Eroor")
+    {
+<h1>No bookings yet!!!!</h1> }
+else
+{
+<br />
+                <br />
+                                <br />
+                                                <br />
+                                                                <br />
+                                                                                <br />
+                                                                                                <h1 style="        padding-left: 180px">Your Bookings</h1>
+                                                                                                                <hr />
+                                                                                                                                @foreach (var item in Model)
+                                                                                                                                {
+                                                                                                                <div style=" padding-left: 200px">
+                                                                                                                    <br />
+                                                                                                                    <h4>Booking</h4>
+                                                                                                                    <hr />
+
+                                                                                                                    <dl class="row">
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.Booking_Id)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.Booking_Id
+                                                                                                                        </dd>
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.PaymentMethod)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.PaymentMethod
+                                                                                                                        </dd>
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.Amount)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.Amount INR
+                                                                                                                        </dd>
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.SubsidyAmount)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.SubsidyAmount
+                                                                                                                        </dd>
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.OrderStatus)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.OrderStatus
+                                                                                                                        </dd>
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.DAC)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.DAC
+                                                                                                                        </dd>
+                                                                                                                        <dt class="col-sm-2">
+                                                                                                                            @Html.DisplayNameFor(item => item.BookingDate)
+                                                                                                                        </dt>
+                                                                                                                        <dd class="col-sm-10">
+                                                                                                                            @item.BookingDate
+                                                                                                                        </dd>
+                                                                                                                        <dd>
+                                                                                                                            <br />
+                                                                                                                            <a class="main-button" style="margin-top:15px;margin-bottom:15px" asp-controller="Complaint" asp-action="Index" asp-route-id="@item.Booking_Id">Make Complaint for Booking</a>&nbsp;&nbsp;&nbsp;
+                                                                                                                            <a class="main-button" asp-controller="Complaint" style="margin-bottom:15px;margin-top:15px" asp-action="Resolved" asp-route-id="@item.Booking_Id">Resolved Complaint for Booking</a>
+                                                                                                                        </dd>
+                                                                                                                    </dl>
+                                                                                                                </div>
+                                                                                                                <br />}}
+
+</div>

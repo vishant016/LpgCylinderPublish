@@ -1,0 +1,164 @@
+﻿@model LPGCylinderSystem.Models.Complaint
+
+@{ ViewData["Title"] = "Index"; }
+
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<section class="section colored" id="contact-us">
+    <div class="container">
+        <!-- ***** Section Title Start ***** -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title">Complaint</h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+
+                </div>
+            </div>
+        </div>
+        <!-- ***** Section Title End ***** -->
+
+        <div class="row">
+            <!-- ***** Contact Text Start ***** -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+                <img src="~/css/assets/images/com.jpg" style="width: 300px;height: 250px">
+
+            </div>
+            <!-- ***** Contact Text End ***** -->
+            <!-- ***** Contact Form Start ***** -->
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="contact-form">
+                    <form method="post" asp-action="Details">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Booking_Id" class="control-label"></label>
+                            <input asp-for="Booking_Id" class="form-control" value="@ViewBag.Booking_id" name="Booking_Id" />
+                            <span asp-validation-for="Booking_Id" class="text-danger"></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-10 col-md-12 col-sm-12">
+                                <b>Category:</b>
+                                <br><br>
+                                <fieldset>
+                                    <select name="Category" asp-for="Category" id="exampleFormControlSelect2" class="form-control" required="">
+                                        <option>New Connection related</option>
+                                        <option>Forced Sale of Accessories</option>
+                                        <option>Cylinder Quality related</option>
+                                        <option>Refill supply related </option>
+                                        <option>Cash & Carry related </option>
+                                        <option>Rude Behaviour </option>
+                                        <option>Subsidy related </option>
+                                        <option>Diversion / Misuse </option>
+                                        <option>service related </option>
+                                        <option>Online/Website Payment issues </option>
+                                        <option>SMS / refill related </option>
+                                        <option>Bulk LPG related </option>
+                                        <option>Customer request </option>
+                                    </select>
+                                    @*<label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />*@
+                                    <span asp-validation-for="Category" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <br>
+                                <b>Description:</b>
+                                <br><br>
+                                <fieldset>
+                                    <textarea asp-for="Description"  rows="6" class="form-control" id="Detail" placeholder="Description" required=""></textarea>
+                                </fieldset>
+                            </div>
+                            @*<div class="form-group">
+            <label asp-for="Status" class="control-label"></label>
+            <input asp-for="Status" class="form-control" />
+            <span asp-validation-for="Status" class="text-danger"></span>
+        </div>*@
+                            @*<div class="form-group">
+            <label asp-for="Remark" class="control-label"></label>
+            <input asp-for="Remark" class="form-control" />
+            <span asp-validation-for="Remark" class="text-danger"></span>
+        </div>*@
+                            <div class="col-lg-12">
+
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="main-button">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                </fieldset>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- ***** Contact Form End ***** -->
+        </div>
+    </div>
+</section>
+
+<!--<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Details">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Booking_Id" class="control-label"></label>
+                <input asp-for="Booking_Id" class="form-control" value="@ViewBag.Booking_id" name="Booking_Id" disabled />
+                <span asp-validation-for="Booking_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <h4>Category</h4>
+                <select asp-for="Category" name="Category" class="form-control form-control-lg" onclick="darkColor" id="exampleFormControlSelect2">
+
+                    <option>New Connection related</option>
+                    <option>Forced Sale of Accessories</option>
+                    <option>Cylinder Quality related</option>
+                    <option>Refill supply related </option>
+                    <option>Cash & Carry related </option>
+                    <option>Rude Behaviour </option>
+                    <option>Subsidy related </option>
+                    <option>Diversion / Misuse </option>
+                    <option>service related </option>
+                    <option>Online/Website Payment issues </option>
+                    <option>SMS / refill related </option>
+                    <option>Bulk LPG related </option>
+                    <option>Customer request </option>
+                </select>
+
+                @*<label asp-for="Category" class="control-label"></label>
+                    <input asp-for="Category" class="form-control" />*@
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <input asp-for="Status" class="form-control" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                    <label asp-for="Remark" class="control-label"></label>
+                    <input asp-for="Remark" class="form-control" />
+                    <span asp-validation-for="Remark" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>-->
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

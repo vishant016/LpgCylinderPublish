@@ -1,0 +1,105 @@
+﻿@model IEnumerable<LPGCylinderSystem.Models.ApplicationUser>
+
+@{ ViewData["Title"] = "Details"; }
+
+
+
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="padding-left:200px;background-color:#F2F2FE">
+    <br /><br /><br /><br /><br /><br />
+@if (ViewBag.error == "Error")
+{
+<h1>You don't have to deliver any order</h1> }
+else
+{
+<h1>Your Pending Deliveries</h1>
+                <h5 style="color:red">@ViewBag.dacstatus @ViewBag.bbid</h5>
+
+
+                                @foreach (var user in Model)
+                                {
+
+                @if (user.Bookings != null)
+                {
+
+<hr />
+
+
+
+
+
+                        @foreach (LPGCylinderSystem.Models.Booking booking in user.Bookings)
+                        {
+@if (booking.DeliveryBoy_Id == ViewBag.did && booking.OrderStatus != "Delivered")
+{
+<form runat="server">
+    <dl class="row">
+        <dt class="col-sm-2">
+            Booking_Id
+        </dt>
+        <dd class="col-sm-10">
+            @booking.Booking_Id
+        </dd>
+
+        <dt class="col-sm-2">
+            Customer name
+        </dt>
+        <dd class="col-sm-10">
+            @user.Name
+        </dd>
+
+        <dt class="col-sm-2">
+            Address
+        </dt>
+        <dd class="col-sm-10">
+            @user.Address
+        </dd>
+
+        <dt class="col-sm-2">
+            Amount
+        </dt>
+        <dd class="col-sm-10">
+            @booking.Amount
+        </dd>
+
+        <dt class="col-sm-2">
+            Payment method
+        </dt>
+        <dd class="col-sm-10">
+            @booking.PaymentMethod
+        </dd>
+        <dt class="col-sm-2">
+
+        </dt>
+        <dd class="col-sm-10">
+
+        </dd>
+        @if (booking.PaymentMethod == "Netbanking" || booking.PaymentMethod == "Card")
+        {
+    <dt class="col-sm-2">
+        <label class="control-label">DAC:</label>
+
+    </dt>
+                                        <dd>
+
+                                            <input type="text" name="dac" id="dac" placeholder="Enter DAC" maxlength="4" minlength="4" class="form-control" required />
+
+                                        </dd>
+}
+        <dt class="col-12">
+
+
+
+            <button class="main-button" style="margin-top:15px;margin-bottom:15px" name="uid" value="@user.Id.ToString()" asp-controller="DeliveryBoy" asp-action="DeliverNow" asp-route-id="@booking.Booking_Id"> Deliver Now </button>
+            @*<input type="hidden" name="uid" asp-for="@user.Id.ToString()" />*@
+        </dt>
+    </dl>
+
+
+
+
+</form>}}}}}
+</div>

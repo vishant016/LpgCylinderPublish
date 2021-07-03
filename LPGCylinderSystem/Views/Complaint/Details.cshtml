@@ -1,0 +1,69 @@
+﻿@model List<LPGCylinderSystem.Models.Complaint>
+
+@{ ViewData["Title"] = "Details"; }
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="background-color: #F2F2FE ">
+    @if (ViewBag.Error == "Error")
+    {
+<h1>No Complaints yet!!!!</h1> }
+else
+{
+
+<br />
+                <br />
+                                <br />
+                                                <br />
+                                                                <br />
+                                                                                <br />
+
+                                                                                                <h1 style="padding-left:200px">Details</h1>
+
+                                                                                                                @foreach (var item in Model)
+                                                                                                                {
+                                                                                                <div>
+                                                                                                    <h4 style="padding-left:200px">Your Complaints</h4>
+                                                                                                    <hr />
+                                                                                                    <dl class="row" style="padding-left:200px">
+                                                                                                        <dt class="col-sm-2">
+                                                                                                            item.Complaint_Id
+
+                                                                                                        </dt>
+                                                                                                        <dd class="col-sm-10">
+                                                                                                            @item.Complaint_Id
+                                                                                                        </dd>
+                                                                                                        <dt class="col-sm-2">
+                                                                                                            item.Category
+                                                                                                        </dt>
+                                                                                                        <dd class="col-sm-10">
+                                                                                                            @item.Category
+                                                                                                        </dd>
+                                                                                                        <dt class="col-sm-2">
+                                                                                                            item.Description
+                                                                                                        </dt>
+                                                                                                        <dd class="col-sm-10">
+                                                                                                            @item.Description
+                                                                                                        </dd>
+                                                                                                        <dt class="col-sm-2">
+                                                                                                            item.Status
+                                                                                                        </dt>
+                                                                                                        <dd class="col-sm-10">
+                                                                                                            @item.Status
+                                                                                                        </dd>
+                                                                                                        <dt class="col-sm-2">
+                                                                                                            item.Remark
+                                                                                                        </dt>
+                                                                                                        <dd class="col-sm-10">
+                                                                                                            @item.Remark
+                                                                                                        </dd>
+                                                                                                    </dl>
+                                                                                                </div>
+                                                                                                                                        <div style="padding-left:200px;margin-top:20px;margin-bottom:20px">
+                                                                                                                                            <a  class="main-button" asp-action="Index" asp-controller="Home">Go To Home</a>
+                                                                                                                                        </div>
+                                                                                                                                                           }}
+
+</div>

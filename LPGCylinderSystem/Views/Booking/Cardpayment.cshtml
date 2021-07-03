@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="padding-left:200px;background-color:#F2F2FE">
+    <br /><br><br /><br /><br /><br /><br /><br />
+    @if (ViewBag.paymentStatus == "fail")
+    {
+        <h4>@ViewBag.message1</h4>
+        <br />
+       
+        <a class="main-button" type="button" asp-controller="Home" asp-action="Index">Home</a>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    }
+    else
+    {
+        <h4>@ViewBag.message1</h4>
+        <br />
+        <h4>Your Booking ID is @ViewBag.id1 .Thank for transacting with us!</h4>
+        <h4>Please note your booking ID for future reference.</h4>
+        <br />
+        <a class="main-button" type="button" asp-controller="Home" asp-action="Index">Home</a>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    }
+    </div>

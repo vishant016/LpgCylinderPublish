@@ -1,0 +1,108 @@
+﻿@model IEnumerable<LPGCylinderSystem.Models.ApplicationUser>
+
+@{ ViewData["Title"] = "Details"; }
+
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+
+
+<div style="padding-left:200px;background-color:#F2F2FE">
+@if (ViewBag.Error == "Error")
+{
+<h1>No Complaints yet!!!!</h1> }
+            else
+            {
+<form runat="server">
+
+
+
+    @foreach (var user in Model)
+    {
+        int temp = 0;
+@if (user.Complaints != null)
+{
+<div>
+    <br /><br /><br /><br /><br /><br />
+    <dl class="row">
+
+
+
+        @foreach (Complaint complaint in user.Complaints)
+        {
+@if (complaint.Status == "pending")
+{
+    temp = 1;
+<dt class="col-sm-2">
+    Booking_Id
+</dt>
+                                <dd class="col-sm-10">
+                                    @complaint.Booking_Id
+                                </dd>
+
+                                                                <dt class="col-sm-2">
+                                                                    Complaint_Id
+                                                                </dt>
+                                                                                                <dd class="col-sm-10">
+                                                                                                    @complaint.Complaint_Id
+                                                                                                </dd>
+
+                                                                                                                                <dt class="col-sm-2">
+                                                                                                                                    Category
+                                                                                                                                </dt>
+                                                                                                                                                                <dd class="col-sm-10">
+                                                                                                                                                                    @complaint.Category
+                                                                                                                                                                </dd>
+
+                                                                                                                                                                                                <dt class="col-sm-2">
+                                                                                                                                                                                                    Description
+                                                                                                                                                                                                </dt>
+                                                                                                                                                                                                                                <dd class="col-sm-10">
+                                                                                                                                                                                                                                    @complaint.Description
+                                                                                                                                                                                                                                </dd>
+                                                                                                                                                                                                                                                                <dt class="col-12">
+
+                                                                                                                                                                                                                                                                    <button class="main-button"  style="margin-top:15px;margin-bottom:15px" name="uid" value="@user.Id.ToString()" asp-controller="Complaint" asp-action="Resolve" asp-route-id="@complaint.Complaint_Id"> Resolve </button>
+                                                                                                                                                                                                                                                                    @*<input type="hidden" name="uid" asp-for="@user.Id.ToString()" />*@
+                                                                                                                                                                                                                                                                </dt>//asp - route - uid = "@user.Id.ToString()"
+
+
+                                                                                                                                                                                                                                                                                            }}
+
+        @if (temp == 1)
+        {
+
+
+
+<dt class="col-sm-2">
+    userid
+</dt>
+                            <dd class="col-sm-10">
+                                @user.Id
+                            </dd>
+                                                        <dt class="col-sm-2">
+                                                            @Html.DisplayNameFor(user => user.Connection_Id)
+                                                        </dt>
+                                                                                    <dd class="col-sm-10">
+                                                                                        @user.Connection_Id
+                                                                                    </dd>
+                                                                                                               
+                                                                                                                                                                        <dt class="col-sm-2">
+                                                                                                                                                                            @Html.DisplayNameFor(user => user.UserName)
+                                                                                                                                                                        </dt>
+                                                                                                                                                                                                    <dd class="col-sm-10">
+                                                                                                                                                                                                        @user.UserName
+                                                                                                                                                                                                    </dd>}
+
+    </dl>
+
+
+</div>
+                        <br /><br />}
+
+
+
+                    <h1>@ViewBag.test</h1>}
+</form>}
+</div>

@@ -1,0 +1,127 @@
+﻿@model LPGCylinderSystem.Models.Dcard
+
+@{ ViewData["Title"] = "CreateCard"; }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="padding-left:200px;background-color:#F2F2FE">
+    <br /><br /><br /><br /><br /><br />    
+<h1>Add New Debit/Credit Card</h1>
+
+
+<hr />
+
+<div class="contact-form">
+    <form asp-action="CreateCard">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @*<div class="form-group">
+            <label asp-for="Card_Id" class="control-label"></label>
+            <input asp-for="Card_Id" class="form-control" />
+            <span asp-validation-for="Card_Id" class="text-danger"></span>
+        </div>*@
+        <div class="col-lg-4">
+            <label asp-for="CardNumber" class="control-label"><b>Card Number:</b></label>
+            <fieldset>
+                <input asp-for="CardNumber" class="form-control" placeholder="Enter Card number...." />
+                <span asp-validation-for="CardNumber" class="text-danger"></span>
+            </fieldset>
+        </div>
+
+        <div class="col-lg-4">
+            <label asp-for="month" class="control-label"><b>Month:</b></label>
+            <fieldset>
+                <input asp-for="month" class="form-control" placeholder="Enter Month...." />
+                <span asp-validation-for="month" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="year" class="control-label"><b>Year:</b></label>
+            <fieldset>
+                <input asp-for="year" class="form-control" placeholder="Enter Year...." />
+                <span asp-validation-for="year" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="CVV" class="control-label"><b>CVV:</b></label>
+            <fieldset>
+                <input asp-for="CVV" class="form-control" placeholder="Enter CVV....." />
+                <span asp-validation-for="CVV" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="mailid" class="control-label"><b>Mail Id:</b></label>
+            <fieldset>
+                <input type="email" asp-for="mailid" class="form-control" placeholder="Mail ID..." />
+                <span asp-validation-for="mailid" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="balance" class="control-label"><b>Balance:</b></label>
+            <fieldset>
+                <input asp-for="balance" class="form-control" placeholder="Enter Balance...." />
+                <span asp-validation-for="balance" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-12">
+            <fieldset>
+                <button type="submit" class="main-button">Create</button>&nbsp;&nbsp;
+                <a asp-action="Index" class="main-button">Cancle</a>
+            </fieldset>
+        </div>
+    </form>
+    <br /><br />
+</div>
+    </div>
+<!--<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateCard">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                    <label asp-for="Card_Id" class="control-label"></label>
+                    <input asp-for="Card_Id" class="form-control" />
+                    <span asp-validation-for="Card_Id" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="CardNumber" class="control-label"></label>
+                <input asp-for="CardNumber" class="form-control" />
+                <span asp-validation-for="CardNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="month" class="control-label"></label>
+                <input asp-for="month" class="form-control" />
+                <span asp-validation-for="month" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="year" class="control-label"></label>
+                <input asp-for="year" class="form-control" />
+                <span asp-validation-for="year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CVV" class="control-label"></label>
+                <input asp-for="CVV" class="form-control" />
+                <span asp-validation-for="CVV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="mailid" class="control-label"></label>
+                <input asp-for="mailid" class="form-control" />
+                <span asp-validation-for="mailid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="balance" class="control-label"></label>
+                <input asp-for="balance" class="form-control" />
+                <span asp-validation-for="balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+    -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

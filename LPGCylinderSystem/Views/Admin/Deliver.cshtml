@@ -1,0 +1,82 @@
+﻿@model IEnumerable<LPGCylinderSystem.Models.ApplicationUser>
+
+@{ ViewData["Title"] = "Details"; }
+
+
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="padding-left:200px;background-color:#F2F2FE">
+
+@if (ViewBag.error == "Error")
+{
+<h1>No Pending Orders</h1> }
+            else
+            {
+<form runat="server">
+
+
+
+    @foreach (var user in Model)
+    {
+
+@if (user.Bookings != null)
+{
+<div>
+    <br /><br /><br /><br /><br /><br />
+    <dl class="row">
+
+
+
+        @foreach (LPGCylinderSystem.Models.Booking booking in user.Bookings)
+        {
+@if ((booking.OrderStatus == "Confirmed" || booking.OrderStatus == "Confirmed-Payment Received") && booking.DeliveryBoy_Id == null)
+{
+<dt class="col-sm-2">
+    User Mobile
+</dt>
+                                <dd class="col-sm-10">
+                                    @user.MobileNo
+                                </dd>
+                                                                <dt class="col-sm-2">
+                                                                    User Email
+                                                                </dt>
+                                                                                                <dd class="col-sm-10">
+                                                                                                    @user.Email
+                                                                                                </dd>
+
+
+                                                                                                                                <dt class="col-sm-2">
+                                                                                                                                    Booking_Id
+                                                                                                                                </dt>
+                                                                                                                                                                <dd class="col-sm-10">
+                                                                                                                                                                    @booking.Booking_Id
+                                                                                                                                                                </dd>
+
+                                                                                                                                                                                                <dt class="col-sm-2">
+                                                                                                                                                                                                    Payment Method
+                                                                                                                                                                                                </dt>
+                                                                                                                                                                                                                                <dd class="col-sm-10">
+                                                                                                                                                                                                                                    @booking.PaymentMethod
+                                                                                                                                                                                                                                </dd>
+
+
+                                                                                                                                                                                                                                                                <dt class="col-12">
+
+                                                                                                                                                                                                                                                                    <button class="main-button" style="margin-top:15px;margin-bottom:15px" name="uid" value="@user.Id.ToString()" asp-controller="Admin" asp-action="Assign" asp-route-id="@booking.Booking_Id"> Assign Delivery Agent </button>
+                                                                                                                                                                                                                                                                    @*<input type="hidden" name="uid" asp-for="@user.Id.ToString()" />*@
+                                                                                                                                                                                                                                                                </dt>//asp - route - uid = "@user.Id.ToString()"
+
+
+                                                                                                                                                                                                                                                                                            }}
+    </dl>
+</div>}}
+
+
+
+
+
+    <h1>@ViewBag.test</h1>
+</form>}
+</div>

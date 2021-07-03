@@ -1,0 +1,328 @@
+﻿@page
+@model RegisterModel
+@*@{
+        ViewData["Title"] = "Register";
+    }
+    <h1>@ViewData["Title"]</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h4>Create a new account.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.ConfirmPassword"></label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-md-offset-2">
+            <section>
+                <h4>Use another service to register.</h4>
+                <hr />
+                @{
+                    if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                    {
+                        <div>
+                            <p>
+                                There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                                for details on setting up this ASP.NET application to support logging in via external services.
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                            <div>
+                                <p>
+                                    @foreach (var provider in Model.ExternalLogins)
+                                    {
+                                        <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    }
+                                </p>
+                            </div>
+                        </form>
+                    }
+                }
+            </section>
+        </div>
+    </div>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }*@
+
+
+
+@{ ViewData["Title"] = "Apply for New Connection"; }
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+
+<section class="section colored" id="contact-us">
+    <div class="container">
+        <!-- ***** Section Title Start ***** -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="center-heading">
+                    <h2 class="section-title" style="margin-left:100px">Register for a new Connection</h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6">
+                <div class="center-text">
+                </div>
+            </div>
+        </div>
+        <!-- ***** Section Title End ***** -->
+
+        <div class="row">
+            <!-- ***** Contact Text Start ***** -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+
+                <img src="~/css/assets/images/re.png">
+
+            </div>
+            <!-- ***** Contact Text End ***** -->
+            <!-- ***** Contact Form Start ***** -->
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="contact-form">
+                    <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.Name" class="form-control" placeholder="Name" />
+                                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.MobileNo" class="form-control" maxlength="10" placeholder="Mobile Number" />
+                                    <span asp-validation-for="Input.MobileNo" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.AadharNo" class="form-control" placeholder="Aadhar Number" />
+                                    <span asp-validation-for="Input.AadharNo" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <input asp-for="Input.Address" class="form-control" placeholder="Address" />
+                                    <span asp-validation-for="Input.Address" class="text-danger"></span>
+
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <input asp-for="Input.Pincode" class="form-control" maxlength="10" placeholder="Pincode" />
+                                    <span asp-validation-for="Input.Pincode" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.AccountNo" class="form-control" placeholder="Account Number" />
+                                    <span asp-validation-for="Input.AccountNo" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.IFSC" class="form-control" placeholder="IFSC Code" />
+                                    <span asp-validation-for="Input.IFSC" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+
+
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password" />
+                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                </fieldset>
+                            </div>
+
+                           
+
+                            <div class="col-lg-12">
+                                <fieldset>
+
+                                    <button type="submit" id="form-submit" class="main-button">Register</button>
+
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- ***** Contact Form End ***** -->
+        </div>
+    </div>
+</section>
+
+<!--<div class="row">
+    <div class="col-md-12">
+
+        <h4>Create a new account.</h4>
+        <hr />
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.Name"></label>
+                        <input asp-for="Input.Name" class="form-control" />
+                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.Email"></label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.MobileNo"></label>
+                        <input asp-for="Input.MobileNo" class="form-control" maxlength="10" />
+                        <span asp-validation-for="Input.MobileNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.AadharNo"></label>
+                        <input asp-for="Input.AadharNo" class="form-control" />
+                        <span asp-validation-for="Input.AadharNo" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.Address"></label>
+                <input asp-for="Input.Address" class="form-control" />
+                <span asp-validation-for="Input.Address" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.Pincode"></label>
+                        <input asp-for="Input.Pincode" class="form-control" maxlength="10" />
+                        <span asp-validation-for="Input.Pincode" class="text-danger"></span>
+                    </div>
+                </div>
+                @*<div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Input.Agency_Id"></label>
+                    <input asp-for="Input.Agency_Id" class="form-control" />
+                    <span asp-validation-for="Input.Agency_Id" class="text-danger"></span>
+                </div>
+            </div>*@
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.AccountNo"></label>
+                        <input asp-for="Input.AccountNo" class="form-control" />
+                        <span asp-validation-for="Input.AccountNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.IFSC"></label>
+                        <input asp-for="Input.IFSC" class="form-control" />
+                        <span asp-validation-for="Input.IFSC" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.Password"></label>
+                        <input asp-for="Input.Password" class="form-control" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Input.ConfirmPassword"></label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="Input.IsAdmin">
+                        <input asp-for="Input.IsAdmin" />
+                        @Html.DisplayNameFor(m => m.Input.IsAdmin)
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label asp-for="Input.IsAdmin">
+                        <input asp-for="Input.IsDeliveryBoy" />
+                        @Html.DisplayNameFor(m => m.Input.IsDeliveryBoy)
+                    </label>
+                </div>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Register</button>
+
+        </form>
+    </div>
+</div>-->
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

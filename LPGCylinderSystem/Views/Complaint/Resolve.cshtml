@@ -1,0 +1,89 @@
+﻿@model LPGCylinderSystem.Models.Complaint
+
+@{ ViewData["Title"] = "Resolve"; }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="padding-left:200px;background-color:#F2F2FE">
+    <br /><br /><br /><br /><br /><br />
+<h1>Resolve</h1>
+
+<h4>Complaint</h4>
+<hr />
+<div class="contact-form">
+    <form asp-action="Resolve">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input name="Complaint_Id" value="@Model.Complaint_Id" hidden />
+        <input name="Booking_Id" value="@Model.Booking_Id" hidden />
+        <input name="Status" hidden value="@Model.Status" />
+        <div class="col-lg-4">
+            <label asp-for="Category" class="control-label"><b>Category:</b></label>
+            <fieldset>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </fieldset>
+        </div>
+
+        <div class="col-lg-4">
+            <label asp-for="Description" class="control-label"><b>Description:</b></label>
+            <fieldset>
+                <input asp-for="Description" class="form-control"  placeholder="Enter Description...."/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="Remark" class="control-label"><b>Remark:</b></label>
+            <fieldset>
+                <input asp-for="Remark" class="form-control" placeholder="Enter Remark...." />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </fieldset>
+        </div>
+        <div class="col-lg-12">
+            <fieldset>
+                <button type="submit" class="main-button">Submit</button>&nbsp;&nbsp;
+                <a asp-action="Index" class="main-button">Cancle</a>
+            </fieldset>
+        </div>
+    </form>
+    <br /><br />
+</div>
+    </div>
+<!--<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Resolve">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <input name="Complaint_Id" value="@Model.Complaint_Id" hidden />
+            <input name="Booking_Id" value="@Model.Booking_Id" hidden />
+            <input name="Status" hidden value="@Model.Status" />
+
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Remark" class="control-label"></label>
+                <input asp-for="Remark" class="form-control" />
+                <span asp-validation-for="Remark" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+-->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

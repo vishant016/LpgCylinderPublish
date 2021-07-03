@@ -1,0 +1,73 @@
+﻿@model List<LPGCylinderSystem.Models.Complaint>
+
+@{ ViewData["Title"] = "Resolved"; }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+
+
+<div style="margin-left:150px;margin-top:170px">
+    <h1>Resolved Complaints</h1>
+    <br />
+    @foreach (var item in Model)
+    {
+
+
+<div>
+    <h4>Complaint</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Complaint_Id
+        </dt>
+        <dd class="col-sm-10">
+            @item.Complaint_Id
+        </dd>
+        <dt class="col-sm-2">
+            Category
+        </dt>
+        <dd class="col-sm-10">
+            @item.Category
+        </dd>
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @item.Description
+        </dd>
+
+        <dt class="col-sm-2">
+            Remark
+        </dt>
+        <dd class="col-sm-10">
+            @item.Remark
+        </dd>
+        <dt class="col-sm-2">
+            Booking_Id
+        </dt>
+        <dd class="col-sm-10">
+            @item.Booking_Id
+        </dd>
+    </dl>
+</div>}
+
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+

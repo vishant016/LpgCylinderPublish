@@ -1,0 +1,28 @@
+﻿@{ if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+                {
+                    Layout = (string)parentLayout;
+                }
+                else
+                {
+                    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+                } }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+
+<div>
+
+    <div class="row" style="background-color:#F2F2FE">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9" style="background-color:#F2F2FE">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

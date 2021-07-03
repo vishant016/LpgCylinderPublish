@@ -1,0 +1,51 @@
+﻿@model List<LPGCylinderSystem.Models.ApplicationUser>
+
+@{ ViewData["Title"] = "Assign"; }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<div style="padding-left:200px;background-color:#F2F2FE">
+    <br /><br /><br /><br /><br /><br />
+<h1>Assign Delivery Boys</h1>
+
+<form runat="server">
+    <h4>Delivery Boys</h4>
+    @foreach (ApplicationUser user in Model)
+    {
+<div>
+
+
+
+
+    <hr />
+    <dl class="row">
+
+        <dt>
+            Mobile Number:
+        </dt>
+        <dd class="col-sm-10">
+            @user.MobileNo
+        </dd>
+        <br />
+        <dt>
+            DeliveryBoy ID:
+        </dt>
+        <dd class="col-sm-10">
+            @user.Id
+        </dd>
+        <dt>
+            DeliveryBoy Name:
+        </dt>
+        <dd class="col-sm-10">
+            @user.Name
+        </dd>
+
+    </dl>
+</div>
+                <div>
+                    <button class="main-button" style="margin-top:15px" name="uid" value="@user.Id.ToString()" asp-controller="Admin" asp-action="Assigned" asp-route-id="@ViewBag.bid"> Assign Now </button>
+                    <a asp-action="Deliver" asp-controller="Admin">Back to List</a>
+                </div>}
+</form>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>

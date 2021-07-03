@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/assets/css/font-awesome.css">
+
+    <link rel="stylesheet" href="css/assets/css/templatemo-softy-pinko.css">
+
+
+    <style>
+        .topnav-left {
+            float: left;
+        }
+
+        .topnav-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a asp-controller="Home" asp-action="Index" class="logo">
+                            <h4>Indane</h4>
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <div class="topnav-left">
+
+                            <ul class="nav">
+                                
+                                <li><a asp-controller="Booking" asp-action="Index">Book</a></li>
+                                <li><a href="#contact-us">Contact Us</a></li>
+                                <li><a href="#features">About</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="topnav-right">
+                            <partial name="_LoginPartial" />
+
+                        </div>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <ul class="social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright">Copyright &copy; 2020 Indane</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/js/popper.js"></script>
+    <script src="js/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="js/js/scrollreveal.min.js"></script>
+    <script src="js/js/waypoints.min.js"></script>
+    <script src="js/js/jquery.counterup.min.js"></script>
+    <script src="js/js/imgfix.min.js"></script>
+
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

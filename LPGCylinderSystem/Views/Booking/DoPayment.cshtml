@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+<link href="~/css/netbanking/Dcard.css" rel="stylesheet" />
+<div style="background-color:#F2F2FE">
+    <br /><br /><br /><br />
+    <div class="container mt-5 px-5">
+        <div class="mb-4">
+            <h2>Confirm order and pay</h2> <span>just sit down we will care your health</span>
+        </div>
+        <br /><br />
+        <form method="post" enctype="multipart/form-data" asp-controller="Booking" asp-action="Cardpayment">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card p-3">
+                        <h6 class="text-uppercase"><b>Payment details</b></h6>
+                        <div class="inputbox mt-3"> <input type="text" name="name" class="form-control" required="required"> <span>Name on card</span> </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="inputbox mt-3 mr-2"> <input type="text" name="cardno" id="cardno" class="form-control" required="required" minlength="16" maxlength="16"> <i class="fa fa-credit-card"></i> <span>Card Number</span> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex flex-row">
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="mm" id="mm" class="form-control" required="required" minlength="2" maxlength="2"> <span>MM</span> </div>
+                                    <div class="inputbox mt-3 mr-2"> <input type="text" name="yy" id="yy" class="form-control" required="required" minlength="2" maxlength="2"> <span>YY</span> </div>
+                                    <div class="inputbox mt-3 mr-2"> <input type="password" name="cvv" class="form-control" required="required" minlength="3" maxlength="3"> <span>CVV</span> </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="mt-4 mb-4 d-flex justify-content-between"><span></span> <button type="submit" value="submit" class="main-button">Pay ₹@ViewBag.total</button> </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-blue p-3 text-white mb-3">
+                        <span>You have to pay</span>
+                        <div class="d-flex flex-row align-items-end mb-3">
+                            <h1 class="mb-0 yellow">₹@ViewBag.total</h1>
+                        </div> <span>Enjoy all the features and facalities provided by Us!</span>
+                        <div class="hightlight"> <span>100% Secure and flexible payments.</span> </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <br /><br /><br /><br /><br /><br />
+    </div>
+    @*
+        For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    *@
+    @{ }

@@ -1,0 +1,113 @@
+﻿@model LPGCylinderSystem.Models.Cylinder
+
+@{
+    ViewData["Title"] = "Cylinder";
+    
+}
+
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
+    <script src="jquery-3.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#selectnumber').change(function () {
+                var id = $('#selectnumber option:selected').text();
+                ViewBag.type = id;
+            })
+        });
+    </script>
+</head>
+<div style="padding-left:200px;background-color:#F2F2FE">
+    <br /><br /><br /><br /><br /><br />
+<h1>Cylinder</h1>
+
+<h4>Add Cylinder</h4>
+<hr />
+<div class="contact-form">
+    <form asp-action="Cylinder">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-lg-4">
+            <label asp-for="CylinderType" class="control-label"><b>Cylinder Type:</b></label>
+            <fieldset>
+                <select name="cylindertype" class="form-control form-control-lg" id="selectnumber">
+                    <option value="14.2 Kg">14.2 Kg</option>
+                    <option value="2.5 Kg">2.5 Kg</option>
+                    <option value="20 Kg">20 Kg</option>
+                </select>
+                <span asp-validation-for="CylinderType" class="text-danger"></span>
+            </fieldset>
+        </div><br />
+
+        <div class="col-lg-4">
+            <label asp-for="Quantity" class="control-label"><b>Quantity:</b></label>
+            <fieldset>
+                <input asp-for="Quantity" class="form-control" placeholder="Enter Quantity...." />
+
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="Price" class="control-label"><b>Price:</b></label>
+            <fieldset>
+                <input asp-for="Price" class="form-control" placeholder="Enter Price....." />
+
+            </fieldset>
+        </div>
+        <div class="col-lg-4">
+            <label asp-for="SubsidyAmount" class="control-label"><b>Susidy Amount:</b></label>
+            <fieldset>
+                <input asp-for="SubsidyAmount" class="form-control" placeholder="Enter SubsidyAmount...." />
+
+            </fieldset>
+        </div>
+        <div class="col-lg-12">
+            <fieldset>
+                <button type="submit" class="main-button">Add</button>&nbsp;&nbsp;
+                <a asp-action="Index" class="main-button">Cancle</a>
+            </fieldset>
+        </div>
+    </form>
+    <br /><br />
+</div>
+    </div>
+<!--<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Cylinder">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CylinderType" class="control-label"></label>
+                <select name="cylindertype" class="form-control form-control-lg" id="selectnumber">
+                    <option value="14.2 Kg">14.2 Kg</option>
+                    <option value="2.5 Kg">2.5 Kg</option>
+                    <option value="20 Kg">20 Kg</option>
+                </select>
+                <span asp-validation-for="CylinderType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="SubsidyAmount" class="control-label"></label>
+                <input asp-for="SubsidyAmount" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+-->
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
