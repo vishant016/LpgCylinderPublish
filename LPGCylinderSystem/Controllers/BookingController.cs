@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 
 namespace LPGCylinderSystem.Controllers
@@ -15,6 +16,7 @@ namespace LPGCylinderSystem.Controllers
     [Authorize]
     public class BookingController : Controller
     {
+        private readonly ILogger _logger;
         private readonly ClassRepository<ApplicationUser> _classRepository;
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -25,10 +27,11 @@ namespace LPGCylinderSystem.Controllers
         public string SessionBookingid = "_Bookid1";
         public string SessionOtp1 = "_otp1";
 
-        public BookingController(ClassRepository<ApplicationUser> classRepository, UserManager<ApplicationUser> userManager)
+        public BookingController(ILogger<BookingController> logger, ClassRepository<ApplicationUser> classRepository, UserManager<ApplicationUser> userManager)
         {
             _classRepository = classRepository;
             _userManager = userManager;
+            _logger = logger;
         }
 
         public async Task<IActionResult> DetailAsync()
@@ -55,11 +58,14 @@ namespace LPGCylinderSystem.Controllers
 
 
 
-        public IActionResult ChooseMethod(string cylindertype, IFormCollection formCollection)
+        public async Task<IActionResult> ChooseMethodAsync(string cylindertype, IFormCollection formCollection)
         {
             int amount ;
-            amount = Int32.Parse(formCollection["cylindertype"]);
-            HttpContext.Session.SetString(SessionCyltype, formCollection["hidden1"]);
+            if (formCollection["cylindertype"] == "0")
+                return RedirectToAction("Index", "Booking", new { area = "" });
+            amount = await _classRepository.getprice(formCollection["cylindertype"]);
+            
+            HttpContext.Session.SetString(SessionCyltype, formCollection["cylindertype"]);
             HttpContext.Session.SetInt32(SessionAmt1, amount);
             return View();
         }
@@ -106,8 +112,11 @@ namespace LPGCylinderSystem.Controllers
             string Subject = "Voila! Your Cylinder is booked ";
             string body = "   Your Cylinder is booked via Reference No." + book1.Booking_Id + ". You have to pay ₹" + HttpContext.Session.GetInt32(SessionAmt1).ToString() + " at Delivery time. Thanks for " +
                 "using our service.";
-            _classRepository.SendMailForPaper(mailid, Subject, body);
-
+           
+                _classRepository.SendMailForPaper(mailid, Subject, body);
+            
+               
+            
 
             return View();
         }

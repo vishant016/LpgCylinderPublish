@@ -1,7 +1,10 @@
 ﻿using LPGCylinderSystem.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,16 +22,16 @@ namespace LPGCylinderSystem.Data.Stores
         private readonly IMongoCollection<Dcard> _Cards;
         private readonly IMongoCollection<Complaint> _Complaints;
         private readonly IMongoCollection<Cylinder> _Cylinders;
+        private readonly string _apikey;
 
-
-        public ClassRepository(MongoTablesFactory mongoProxy)
+        public ClassRepository(MongoTablesFactory mongoProxy, IConfiguration configuration)
         {
             _users = mongoProxy.GetCollection<TUser>(MongoTablesFactory.TABLE_USERS);
             _Netbankings= mongoProxy.GetCollection<Netbanking>(MongoTablesFactory.TABLE_NETBANKING);
             _Cards = mongoProxy.GetCollection<Dcard>(MongoTablesFactory.TABLE_CARD);
             _Complaints = mongoProxy.GetCollection<Complaint>(MongoTablesFactory.TABLE_COMPLAINT);
            _Cylinders = mongoProxy.GetCollection<Cylinder>(MongoTablesFactory.TABLE_CYLINDER);
-
+            _apikey = configuration["APIKEY"];
         }
 
 
@@ -93,7 +96,11 @@ namespace LPGCylinderSystem.Data.Stores
             _Cylinders.ReplaceOne(item => item.CylinderType == cylindertype, cylinder);
             return cylinder;
         }
-
+        public async Task<int> getprice(string cylindertype)
+        {
+            Cylinder cylinder = await _Cylinders.Find(c => c.CylinderType == cylindertype).FirstOrDefaultAsync();
+            return cylinder.Price;
+        } 
         public List<Cylinder> FindCylindersAsync()
         {
             var query = _Cylinders.Find(u=>u.Quantity>=1).ToListAsync();
@@ -112,23 +119,38 @@ namespace LPGCylinderSystem.Data.Stores
                return  _users.Find(u => u.Id ==o).FirstOrDefaultAsync();
         }
 
-        public void SendMailForPaper(string newMail,string subject,string body)
-        {
-            using (MailMessage emailMessage = new MailMessage())
-            {
-                emailMessage.From = new MailAddress("lpgcylinderbookingsystem@gmail.com", "Lpg Cylinder System");
-                emailMessage.To.Add(new MailAddress(newMail, newMail));
-                emailMessage.Subject = subject;
-                emailMessage.Body =body ;
-                emailMessage.Priority = MailPriority.Normal;
-                using (SmtpClient MailClient = new SmtpClient("smtp.gmail.com", 587))
-                {
-                    MailClient.EnableSsl = true;
-                    MailClient.Credentials = new System.Net.NetworkCredential("lpgcylinderbookingsystem@gmail.com", "Aero@7878787878");
-                    MailClient.Send(emailMessage);
-                }
-            }
+        //public void SendMailForPaper(string newMail,string subject,string body)
+        //{
+        //    using (MailMessage emailMessage = new MailMessage())
+        //    {
+        //        emailMessage.From = new MailAddress("lpgcylinderbookingsystem@gmail.com", "Lpg Cylinder System");
+        //        emailMessage.To.Add(new MailAddress(newMail, newMail));
+        //        emailMessage.Subject = subject;
+        //        emailMessage.Body =body ;
+        //        emailMessage.Priority = MailPriority.Normal;
+        //        using (SmtpClient MailClient = new SmtpClient("smtp.gmail.com", 587))
+        //        {
+        //            MailClient.EnableSsl = true;
+        //             MailClient.Credentials = new System.Net.NetworkCredential("lpgcylinderbookingsystem@gmail.com", "Aero@7878787878");
+        //           // MailClient.Credentials = new System.Net.NetworkCredential("apikey", "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");
+        //            MailClient.Send(emailMessage);
+        //        }
+        //    }
 
+        //}
+
+        public async void SendMailForPaper(string newMail, string subject, string body)
+        {
+            var apiKey = _apikey;
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("lpgcylinderbookingsystem@gmail.com", "LpgCylinderBookingSystem");
+            //var subject = "Sending with SendGrid is Fun";
+            var to = new EmailAddress(newMail, newMail);
+           // var plainTextContent = "and easy to do anywhere, even with C#";
+            var htmlContent = "<strong>"+body+" </strong>";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, body, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+            
         }
 
     }

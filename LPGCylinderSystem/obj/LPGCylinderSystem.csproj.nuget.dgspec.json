@@ -40,6 +40,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Azure.Extensions.AspNetCore.Configuration.Secrets": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
             "IKVM": {
               "target": "Package",
               "version": "[8.1.5717, )"
@@ -79,6 +87,10 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.11.5, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.24.2, )"
             },
             "VisioForge.DotNet.Core.TRIAL": {
               "target": "Package",

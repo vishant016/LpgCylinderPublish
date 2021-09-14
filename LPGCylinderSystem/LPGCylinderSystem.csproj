@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.0.0" />
+    <PackageReference Include="Azure.Identity" Version="1.2.2" />
     <PackageReference Include="IKVM" Version="8.1.5717" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
@@ -17,6 +19,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+    <PackageReference Include="SendGrid" Version="9.24.2" />
     <PackageReference Include="VisioForge.DotNet.Core.TRIAL" Version="12.0.82" />
   </ItemGroup>
 

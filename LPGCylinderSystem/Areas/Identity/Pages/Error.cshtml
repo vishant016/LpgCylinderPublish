@@ -3,15 +3,18 @@
 @{
     ViewData["Title"] = "Error";
 }
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/bootstrap.min.css">
 
+<link rel="stylesheet" type="text/css" href="~/css/assets/css/font-awesome.css">
+<link rel="stylesheet" href="~/css/assets/css/templatemo-softy-pinko.css">
 <h1 class="text-danger">Error.</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
 @if (Model.ShowRequestId)
 {
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
+<p>
+    <strong>Request ID:</strong> <code>@Model.RequestId</code>
+</p>
 }
 
 <h3>Development Mode</h3>

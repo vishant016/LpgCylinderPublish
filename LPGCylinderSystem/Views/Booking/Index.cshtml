@@ -48,9 +48,10 @@
                                 <br><br>
                                 <fieldset>
                                     <select name="cylindertype" id="cylindertype" class="form-control" required="">
+                                        <option value="0">select Cylinder Type</option>
                                         @foreach (Cylinder c in ViewBag.Cylinders)
                                         {
-                            <option value=@c.Price>@c.CylinderType</option>}
+                            <option value=@c.CylinderType>@c.CylinderType</option>}
                                     </select>
                                 </fieldset>
                             </div>

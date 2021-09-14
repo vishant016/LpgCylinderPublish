@@ -3387,4 +3387,12 @@ H:\Cylinder-Booking-master\LPGCylinderSystem\obj\Debug\netcoreapp3.1\LPGCylinder
 H:\Cylinder-Booking-master\LPGCylinderSystem\obj\Debug\netcoreapp3.1\LPGCylinderSystem.dll
 H:\Cylinder-Booking-master\LPGCylinderSystem\obj\Debug\netcoreapp3.1\LPGCylinderSystem.pdb
 H:\Cylinder-Booking-master\LPGCylinderSystem\obj\Debug\netcoreapp3.1\LPGCylinderSystem.genruntimeconfig.cache
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\SendGrid.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\Azure.Core.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\Azure.Identity.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\Azure.Security.KeyVault.Secrets.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+H:\Cylinder-Booking-master\LPGCylinderSystem\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.Extensions.Msal.dll
 H:\Cylinder-Booking-master\LPGCylinderSystem\obj\Debug\netcoreapp3.1\LPGCylinderSystem.csprojAssemblyReference.cache

@@ -17,10 +17,7 @@ namespace LPGCylinderSystem.Controllers
     [Authorize(Roles="ADMIN")]
     public class AdminController : Controller
     {
-    
-    
-    //just git testing
-    //just git testing
+ 
     
     
         private readonly UserManager<ApplicationUser> _userManager;

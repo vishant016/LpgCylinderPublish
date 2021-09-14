@@ -7,9 +7,6 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-
-//git testing
-//git testing 2
 namespace LPGCylinderSystem.Models
 {
     public class ApplicationUser: IdentityUser<ObjectId>,IIdentityUserRole
